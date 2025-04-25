@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    background: url('travel12.jpg');
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.container {
+    display: flex;
+    width: 80%;
+    max-width: 1200px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.content-left {
+    flex: 1;
+    padding: 50px;
+    background: rgba(0, 0, 0, 0.5);
+}
+.logo {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+.info-list {
+    list-style: none;
+    padding: 0;
+}
+.info-list li {
+    margin: 20px 0;
+}
+.info-list span {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.info-list p {
+    margin: 5px 0;
+    color: #ddd;
+}
+.social-icons a {
+    color: white;
+    text-decoration: none;
+    margin-right: 10px;
+    opacity: 0.8;
+}
+.social-icons a:hover {
+    opacity: 1;
+}
+.content-right {
+    flex: 1.5;
+    position: relative;
+}
+nav {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    opacity: 0.8;
+    font-weight: bold;
+}
+nav a:hover {
+    opacity: 1;
+}
+.image-section {
+    position: relative;
+    height: 100%;
+    background: url('travel5.jpg') no-repeat center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
+}
+.image-section h2 {
+    font-size: 1.5rem;
+    margin: 0;
+    opacity: 0.8;
+}
+.image-section h1 {
+    font-size: 4rem;
+    margin: 10px 0;
+}
+.search-bar {
+    margin-top: 20px;
+}
+.search-bar input {
+    padding: 10px;
+    border: grey;
+    border-radius: 5px;
+    width: 200px;
+}

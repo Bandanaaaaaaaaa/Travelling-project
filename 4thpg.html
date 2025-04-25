@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Page</title>
+    <link rel="stylesheet" href="4thpg.css">
+</head>
+<body>
+    <div class="container">
+        <div class="content-left">
+            <div class="logo">Travel</div>
+            <ul class="info-list">
+                <li><span>01. Trips</span><p>200 trips showing</p></li>
+                <li><span>02. Where We Go</span><p>More trips, more choice.</p></li>
+                <li><span>03. Tour Guide</span><p>Planning your next adventure</p></li>
+                <li><span>04. Collections</span><p>Looking for your perfect trip?</p></li>
+            </ul>
+            <div class="social-icons">
+                <a href="#">🐦</a>
+                <a href="#">📘</a>
+                <a href="#">📸</a>
+                <a href="#">▶️</a>
+            </div>
+        </div>
+        <div class="content-right">
+            <nav>
+                <a href="#">Destinations</a>
+                <a href="#">Bookings</a>
+                <a href="#">Gallery</a>
+                <a href="#">Find a Tour</a>
+            </nav>
+            <div class="image-section">
+                <h2>Manarola</h2>
+                <h1>Italy</h1>
+                <div class="search-bar">
+                    <input type="text" placeholder="Find a tour">
+                </div>
+            </div>
+
+            <!-- Image Slider -->
+            <div class="slider">
+                <div class="slides">
+                    <div class="slide"><img src="travel10.jpg" alt="Slide 1"></div>
+                    <div class="slide"><img src="travel12.jpg" alt="Slide 2"></div>
+                    <div class="slide"><img src="travel15.jpg" alt="Slide 3"></div>
+                </div>
+                <a class="prev" onclick="moveSlide(-1)">&#10094;</a>
+                <a class="next" onclick="moveSlide(1)">&#10095;</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        function moveSlide(direction) {
+            const slides = document.querySelector('.slides');
+            const totalSlides = slides.children.length;
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+    </script>
+</body>
+</html>
