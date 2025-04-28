@@ -14,6 +14,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         die("connection failed" . mysqli_connect_error());
     }
    
+$plain_password=$_POST["password"];
+$hash=password_hash($plain_password,PASSWORD_DEFAULT);
+echo "<h1>$hash</h1>";
 
 
     $signup_table = "
@@ -32,13 +35,12 @@ password TEXT NOT NULL
         echo "no table";
     }
 
-    if (isset($_POST["register"])) {
-        echo "register";
-    }
     function insertQuery($conn, $data, $signup_table)
     {
         $key = implode(", ", array_keys($data));
-        $value =  "'" .implode("','", array_values($data)) ."'";
+        $value = "'" .implode("','", array_values($data))."'";
+echo "--> $key<br>";
+echo "<br>---$value";
         $insert = "INSERT INTO $signup_table ($key) VALUES ($value)";
         mysqli_query($conn, $insert);
     }
@@ -47,12 +49,21 @@ password TEXT NOT NULL
     $data = [
         "username" => $_POST["username"],
         "email" => $_POST["email"],
-        "password" => $_POST["password"],
+        "password" => $hash,
     ];
 
     insertQuery($conn, $data, "signup");
 
+$cookie_name="token";
+$cookie_value=$_POST["email"];
+setcookie($cookie_name, $cookie_value);
 
+if(!isset($_COOKIE[$cookie_name])){
+echo"cookie not set $cookie_name ---";
+}
+else{
+echo "cookie set $cookie_name";
+}
 
 
     include(__DIR__ . "/../VIEWS/profile.html");
