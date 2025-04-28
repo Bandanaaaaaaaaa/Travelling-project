@@ -8,15 +8,14 @@
 </head>
 <body>
     <section id="signup">
-        <h2>Create a Account</h2>
-        <form action="/signup" method="post">
-            <input type="text" name="username" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Email Address" required>
+        <h2>Login</h2>
+        <form action="/login" method="post">
+             <input type="email" name="email" placeholder="Email Address" required>
             <input type="password" name="password" placeholder="Password" required>
-            <button type="submit">Register</button>
+            <button type="submit" name="register">Register</button>
         </form>
         <div class="form-footer">
-            Already have an account? <a href="/login">Log in</a>
+            Don't have an account? <a href="/signup">Log in</a>
         </div>
     </section>
 </body>
