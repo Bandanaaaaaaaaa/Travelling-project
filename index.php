@@ -5,25 +5,31 @@ $viewDir = '/VIEWS/';
 $controllerDir = '/CONTROLLERS/';
 
 switch ($request) {
-    case '':
+    // case '':
     case '/':
         require __DIR__ . $viewDir . 'home.php';
         break;
     case '/form':
         require __DIR__ . $viewDir . 'form.php';
         break;
-    case '/index':
-        require __DIR__ . $viewDir . 'login.html';
-        break;
     case '/signup':
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // require __DIR__ . '/VIEWS/form.php';
-            require __DIR__ . $controllerDir . 'form.php';
-
-        } else {
-            // maybe show the form or error
-        }
-        break;
+ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+        require __DIR__ . $viewDir . 'signup.html';
+    } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        require __DIR__ . $controllerDir . 'form.php';
+    } else {
+        http_response_code(405); // Method Not Allowed
+        echo "Method Not Allowed";
+    }   
+     break;
+case '/login':
+if($_SERVER["REQUEST_METHOD"]==='GET'){
+require __DIR__ . $viewDir. 'login.html';
+}
+elseif ($_SERVER["REQUEST_METHOD"]==="POST"){
+require __DIR__.$controllerDir."login.php";
+}
+break;
     default:
         http_response_code(404);
         require __DIR__ . $viewDir . '404.php';
